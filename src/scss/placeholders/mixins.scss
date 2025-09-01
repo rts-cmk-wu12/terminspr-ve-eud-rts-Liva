@@ -1,0 +1,13 @@
+@use './root.scss';
+
+@mixin purpleBtn {
+    width: 100%;
+    max-width: 15rem;
+    padding: 1rem .5rem;
+    background-color: root.$primary-purple;
+    border: none;
+    border-radius: .8rem;
+    text-align: center;
+    font-size: 1.12rem;
+    box-shadow: 3px 4px 4px #00000040;
+}

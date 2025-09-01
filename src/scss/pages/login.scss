@@ -1,0 +1,43 @@
+@use '../placeholders/root.scss';
+@use '../placeholders/mixins.scss';
+
+.login {
+    align-self: center;
+    margin-inline: auto;
+    z-index: 1;
+    width: 100%;
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    &__heading {
+        font-size: 3rem;
+        font-weight: 300;
+    }
+
+    label {
+        width: fit-content;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 1rem .8rem;
+        border: none;
+        background-color: root.$primary-white;
+        margin-bottom: .3rem;
+        font-size: 1.12rem;
+        color: root.$typeography-tertiary;
+
+        &::placeholder {
+            font-size: 1.12rem;
+            color: root.$typeography-tertiary;
+        }
+    }
+
+    &__button {
+        align-self: center;
+        margin-top: 1rem;
+        @include mixins.purpleBtn;
+    }
+}

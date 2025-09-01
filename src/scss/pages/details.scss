@@ -1,0 +1,49 @@
+@use '../placeholders/root.scss';
+@use '../placeholders/mixins.scss';
+
+.details {
+    &-cover {
+        position: relative;
+
+        &__image {
+            width: 100vw;
+            height: 25rem;
+            object-fit: cover;
+        }
+
+        &__button {
+            position: absolute;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            @include mixins.purpleBtn;
+            font-size: 1rem;
+            max-width: 13.5rem;
+        }
+    }
+
+    &-info {
+        margin-top: 1rem;
+        padding-inline: 1.5rem;
+
+        &__heading {
+            font-size: 1.5rem;
+            margin-bottom: .5rem;
+        }
+
+        &__table {
+            text-align: left;
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+            margin-bottom: 1rem;
+
+            td {
+                padding-top: .3rem;
+
+                &:first-of-type {
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}
