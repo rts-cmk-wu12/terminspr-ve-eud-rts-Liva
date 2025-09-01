@@ -1,0 +1,40 @@
+@use '../placeholders/root.scss';
+
+.activity {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &-card {
+        position: relative;
+        max-width: 28rem;
+
+        &__image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 2rem;
+            border-bottom-right-radius: 0;
+        }
+
+        &__info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-top-right-radius: 2rem;
+            border-bottom-left-radius: 2rem;
+            background-color: root.$accent-pink;
+            padding: 1.5rem 1rem;
+        }
+
+        &__text {
+            font-size: 1.12rem;
+            color: root.$typeography-secondary;
+
+            &:first-of-type {
+                margin-bottom: .5rem;
+            }
+        }
+    }
+}
