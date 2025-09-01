@@ -1,3 +1,6 @@
+import '@/scss/placeholders/fonts.scss';
+import '@/scss/placeholders/reset.scss';
+
 export const metadata = {
   title: {
     template: "%s | Landrup Dans",

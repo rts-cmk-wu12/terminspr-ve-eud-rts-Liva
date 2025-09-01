@@ -24,3 +24,16 @@ button {
 a {
     text-decoration: none;
 }
+
+body {
+    background-color: root.$primary-purple;
+}
+
+main {
+    padding-inline: 1.5rem;
+    padding-bottom: 5rem;
+
+    &.fullscreen {
+        padding: 0;
+    }
+}
