@@ -20,6 +20,12 @@
         width: fit-content;
     }
 
+    div {
+        &:has(.login__input--checkbox) {
+            align-self: center;
+        }
+    }
+
     &__input {
         width: 100%;
         padding: 1rem .8rem;
@@ -29,10 +35,21 @@
         font-size: 1.12rem;
         color: root.$typeography-tertiary;
 
+        &--checkbox {
+            width: fit-content;
+            margin-right: .3rem;
+        }
+
         &::placeholder {
             font-size: 1.12rem;
             color: root.$typeography-tertiary;
         }
+    }
+
+    &__error {
+        text-align: center;
+        color: root.$typeography-red;
+        text-shadow: -1px -1px 0 root.$accent-black, 1px -1px 0 root.$accent-black, -1px 1px 0 root.$accent-black, 1px 1px 0 root.$accent-black;
     }
 
     &__button {

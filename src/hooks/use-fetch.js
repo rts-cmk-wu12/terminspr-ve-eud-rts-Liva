@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+// Følgende kode er udtaget fra et af mine tidligere opgaver
 function useFetch(endpoint, baseUrl = 'http://localhost:4000/api/v1/') {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);

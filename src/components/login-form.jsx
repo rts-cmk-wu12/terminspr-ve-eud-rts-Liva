@@ -1,12 +1,25 @@
 'use client';
 
 import { useActionState } from "react";
+import { BarLoader } from "react-spinners";
 import loginAction from "@/actions/login-action";
+
+const override = {
+    alignSelf: 'center',
+    marginInline: 'auto'
+};
 
 function LoginForm() {
     const [formState, formAction, isPending] = useActionState(loginAction);
 
-    return (
+    return isPending ? (
+        <BarLoader
+            color="#EAEAEA"
+            loading={true}
+            cssOverride={override}
+            size={55}
+        />
+    ) : (
         <form className="login" action={formAction}>
             <h1 className="login__heading">Log ind</h1>
             <div>
@@ -15,8 +28,8 @@ function LoginForm() {
                         type="text"
                         name="username"
                         placeholder="Brugernavn"
-                        className="login__input"
-                        required />
+                        className="login__input" />
+                    <p className="login__error">{formState?.properties?.username?.errors}</p>
                 </label>
             </div>
             <div>
@@ -25,10 +38,20 @@ function LoginForm() {
                         type="password"
                         name="password"
                         placeholder="Adgangskode"
-                        className="login__input"
-                        required />
+                        className="login__input" />
+                    <p className="login__error">{formState?.properties?.password?.errors}</p>
                 </label>
             </div>
+            <div>
+                <label>
+                    <input
+                        type="checkbox"
+                        name="checkbox"
+                        className="login__input login__input--checkbox" />
+                    <span>Husk mig</span>
+                </label>
+            </div>
+            <p className="login__error">{formState?.errors}</p>
             <button type="submit" className="login__button">Log ind</button>
         </form>
     );
