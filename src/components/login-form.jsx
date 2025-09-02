@@ -1,12 +1,25 @@
 'use client';
 
 import { useActionState } from "react";
+import { BarLoader } from "react-spinners";
 import loginAction from "@/actions/login-action";
+
+const override = {
+    alignSelf: 'center',
+    marginInline: 'auto'
+};
 
 function LoginForm() {
     const [formState, formAction, isPending] = useActionState(loginAction);
 
-    return (
+    return isPending ? (
+        <BarLoader
+            color="#EAEAEA"
+            loading={true}
+            cssOverride={override}
+            size={55}
+        />
+    ) : (
         <form className="login" action={formAction}>
             <h1 className="login__heading">Log ind</h1>
             <div>
