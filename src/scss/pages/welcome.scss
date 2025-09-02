@@ -1,8 +1,12 @@
 @use '../placeholders/root.scss';
+@use '../placeholders/mixins.scss';
 
 .logo {
-    padding-left: 2rem;
+    padding-inline: 2rem 1.5rem;
     border-bottom: 14px solid root.$primary-purple;
+    box-shadow: -4px 4px 4px root.$transparent-black;
+    height: fit-content;
+    align-self: center;
 
     &__heading {
         font-family: 'Roboto', sans-serif;
@@ -15,9 +19,50 @@
             display: block;
             font-size: 4rem;
             color: root.$typeography-pink;
-            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+            text-shadow: -1px -1px 0 root.$accent-black, 1px -1px 0 root.$accent-black, -1px 1px 0 root.$accent-black, 1px 1px 0 root.$accent-black;
             -webkit-text-stroke: 0;
             font-style: italic;
+            font-family: 'Racing Sans One', sans-serif;
+            margin-top: -1.2rem;
+            transform: skewX(10deg);
         }
+    }
+}
+
+.welcome-btn {
+    @include mixins.purpleBtn;
+    align-self: end;
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: enterBtn 2000ms ease-out 1500ms forwards;
+}
+
+@keyframes enterBtn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(.9);
+    }
+
+    75% {
+        opacity: 1;
+        bottom: 3rem;
+        transform: translateX(-50%) scale(.9);
+    }
+
+    80% {
+        transform: translateX(-50%) scale(.9);
+        bottom: 3rem;
+    }
+
+    90% {
+        transform: translateX(-50%) scale(1.1);
+        bottom: 3rem;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+        bottom: 3rem;
     }
 }
