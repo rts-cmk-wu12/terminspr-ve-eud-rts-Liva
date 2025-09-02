@@ -1,11 +1,13 @@
 'use server';
 
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import z from "zod";
 
 async function loginAction(prevState, formData) {
     const username = formData.get('username');
     const password = formData.get('password');
+    const checkbox = formData.get('checkbox');
 
     const schema = z.object({
         username: z.string().min(1, { message: 'Brugernavn skal være udfyldt' }),
@@ -26,27 +28,44 @@ async function loginAction(prevState, formData) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: {
+        body: JSON.stringify({
             username: validated.data.username,
             password: validated.data.password
-        }
+        })
     });
 
-    // console.log(response);
+    if (response.status !== 200) return {
+        success: false,
+        errors: ['Brugernavn eller adgangskode er forkert']
+    };
 
-    // if (!user.length) return {
-    //     success: false,
-    //     errors: ['Brugernavn eller adgangskode er forkert']
-    // };
+    const data = await response.json();
 
-    // if (user[0].password === validated.data.password) {
-    //     const cookieStore = await cookies();
-    //     cookieStore.set('status', 'Du er nu logget ind.', {
-    //         maxAge: 60 * 30
-    //     });
-    // };
+    if (!Object.keys(data).length) return;
 
-    return validated;
+    const cookieStore = await cookies();
+    cookieStore.set({
+        name: 'access_token',
+        value: data.token,
+        expires: data.validUntil
+    });
+
+    if (checkbox === 'on') {
+        cookieStore.set({
+            name: 'user_id',
+            value: data.userId,
+            maxAge: 60 * 60 * 24 * 30
+        });
+
+        redirect('/');
+    };
+
+    cookieStore.set({
+        name: 'user_id',
+        value: data.userId,
+    });
+
+    redirect('/');
 }
 
 export default loginAction;

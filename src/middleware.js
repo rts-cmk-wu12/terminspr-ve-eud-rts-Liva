@@ -11,6 +11,14 @@ export default async function middleware(request) {
         return NextResponse.redirect(new URL('/welcome', request.url));
     };
 
+    if (pathname.includes('/login')) {
+        return;
+    };
+
+    if (!request.cookies.has('access_token')) {
+        return NextResponse.redirect(new URL('/login', request.url));
+    }
+
     return;
 }
 
