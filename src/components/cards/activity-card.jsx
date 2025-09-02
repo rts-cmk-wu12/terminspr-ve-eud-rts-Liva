@@ -1,9 +1,9 @@
 'use client';
 
 import useFetch from "@/hooks/use-fetch";
+import Link from "next/link";
 import Image from "next/image";
 import '@/scss/components/activity-card.scss';
-import Link from "next/link";
 
 function ActivityCard() {
     const { data, error, loading } = useFetch('activities');
