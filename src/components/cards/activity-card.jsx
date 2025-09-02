@@ -19,8 +19,10 @@ function ActivityCard() {
                             <Image
                                 src={activity.asset.url}
                                 alt={`${activity.name} billede`}
-                                width={350}
-                                height={340}
+                                width={500}
+                                height={500}
+                                placeholder="blur"
+                                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEW2tLLDbwZkAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
                                 className="activity-card__image" />
                             <section className="activity-card__info">
                                 <h2 className="activity-card__text">{activity.name}</h2>
