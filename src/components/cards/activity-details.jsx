@@ -2,9 +2,15 @@
 
 import useFetch from "@/hooks/use-fetch";
 import Image from "next/image";
+import ActivityBtn from "../activity-btn";
 
-function ActivityDetails({ id }) {
+function ActivityDetails({ id, user }) {
     const { data, error, loading } = useFetch(`activities/${id}`);
+
+    const userIsParticipating = user?.activities.some(activity => activity?.id === data?.id);
+    const userIsAvailable = !(user?.activities.some(activity => activity?.weekday === data?.weekday));
+    const userTooYoung = user?.age < data?.minAge;
+    const userTooOld = user?.age > data?.maxAge;
 
     return (
         <>
@@ -19,7 +25,15 @@ function ActivityDetails({ id }) {
                             width={411}
                             height={490}
                             className="details-cover__image" />
-                        <button type="button" className="details-cover__button">Tilmeld</button>
+                        {user?.id && (
+                            <ActivityBtn
+                                userIsParticipating={userIsParticipating}
+                                userIsAvailable={userIsAvailable}
+                                userTooYoung={userTooYoung}
+                                userTooOld={userTooOld}
+                                userId={user?.id}
+                                activityId={data?.id} />
+                        )}
                     </div>
                     <section className="details-info">
                         <h1 className="details-info__heading">{data.name}</h1>
