@@ -44,7 +44,6 @@ function ActivityBtn({ userIsParticipating, userIsAvailable, userTooYoung, userT
             dispatch({ type: 'isDisabled' });
         };
 
-
     }, [userIsParticipating]);
 
     return (
