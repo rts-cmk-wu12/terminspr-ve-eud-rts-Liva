@@ -22,8 +22,8 @@ function ActivityDetails({ id, user }) {
                         <Image
                             src={data.asset.url}
                             alt={`${data.name} billede`}
-                            width={411}
-                            height={490}
+                            width={600}
+                            height={600}
                             className="details-cover__image" />
                         {user?.id && (
                             <ActivityBtn
