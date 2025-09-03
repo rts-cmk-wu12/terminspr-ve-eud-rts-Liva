@@ -1,0 +1,15 @@
+@use '../placeholders/root.scss';
+
+.team {
+    margin-top: 1.5rem;
+    padding-inline: 1.5rem;
+
+    &__heading {
+        font-size: 2rem;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-bottom: 1rem;
+    }
+}
