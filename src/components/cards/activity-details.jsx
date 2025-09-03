@@ -25,7 +25,7 @@ function ActivityDetails({ id, user }) {
                             width={600}
                             height={600}
                             className="details-cover__image" />
-                        {user?.id && (
+                        {user?.id && user?.role === 'default' && (
                             <ActivityBtn
                                 userIsParticipating={userIsParticipating}
                                 userIsAvailable={userIsAvailable}
