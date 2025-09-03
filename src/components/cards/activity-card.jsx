@@ -15,7 +15,7 @@ function ActivityCard() {
             <ul className="activity">
                 {data && data.map(activity => (
                     <li key={activity.id} className="activity-card">
-                        <Link href={`/activity/${activity.id}`}>
+                        <Link href={`/aktivitet/${activity.id}`}>
                             <Image
                                 src={activity.asset.url}
                                 alt={`${activity.name} billede`}
