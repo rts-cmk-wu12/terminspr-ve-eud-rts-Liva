@@ -44,7 +44,7 @@ export const config = {
     matcher: [
         '/',
         '/aktivitet/:path*',
-        '/søg/:path*',
+        '/soeg/:path*',
         '/kalender/:path*',
         '/hold-oversigt/:path*',
         '/login/:path*',
