@@ -38,7 +38,10 @@ function SearchForm() {
                     size={55}
                 />
             ) : (
-                <ActivityCard data={formState?.data} />
+                formState.data.length ? <ActivityCard data={formState.data} /> : (
+                    <p>Der blev ikke fundet nogle aktiviteter.
+                        <br /> Prøv at søge efter noget andet.
+                    </p>)
             )}
         </>
     );
