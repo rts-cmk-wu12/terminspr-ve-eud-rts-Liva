@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import authFetch from "@/utils/auth-fetch";
+import Loader from "@/components/loader";
 import CalendarCard from "@/components/cards/calendar-card";
 import ActivityOverview from "@/components/activity-overview";
 import '@/scss/pages/calendar.scss';
@@ -19,7 +20,7 @@ async function CalendarPage() {
 
     return (
         <>
-            {!Object.keys(user).length && <p>Indlæser...</p>}
+            {!Object.keys(user).length && <Loader />}
             {user.role === 'default' ? (
                 user.activities.length ? (
                     <ul className="calendar">
@@ -32,11 +33,13 @@ async function CalendarPage() {
                     </ul>
                 ) : <p>Ingen aktiviteter fundet</p>
             ) : (
-                instructorActivities?.map(activity => (
-                    <ActivityOverview
-                        key={activity.id}
-                        activity={activity} />
-                ))
+                <ul className="calendar">
+                    {instructorActivities?.map(activity => (
+                        <ActivityOverview
+                            key={activity.id}
+                            activity={activity} />
+                    ))}
+                </ul>
             )}
         </>
     );

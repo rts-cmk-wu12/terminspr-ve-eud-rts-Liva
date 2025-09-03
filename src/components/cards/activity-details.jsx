@@ -1,6 +1,7 @@
 'use client';
 
 import useFetch from "@/hooks/use-fetch";
+import Loader from "../loader";
 import Image from "next/image";
 import ActivityBtn from "../activity-btn";
 
@@ -14,7 +15,7 @@ function ActivityDetails({ id, user }) {
 
     return (
         <>
-            {loading && <p>Indlæser...</p>}
+            {loading && <Loader />}
             {error && <p>Aktivitet kunne ikke findes</p>}
             {data && (
                 <>

@@ -2,14 +2,9 @@
 
 import { useActionState } from "react";
 import { FiSearch } from "react-icons/fi";
-import { BarLoader } from "react-spinners";
 import searchAction from "@/actions/search-action";
+import Loader from "../loader";
 import ActivityCard from "../cards/activity-card";
-
-const override = {
-    alignSelf: 'center',
-    marginInline: 'auto'
-};
 
 function SearchForm() {
     const [formState, formAction, isPending] = useActionState(searchAction);
@@ -30,19 +25,12 @@ function SearchForm() {
                 <button type="submit" className="search__icon"><FiSearch /></button>
             </form>
 
-            {isPending ? (
-                <BarLoader
-                    color="#EAEAEA"
-                    loading={true}
-                    cssOverride={override}
-                    size={55}
-                />
-            ) : (
-                formState.data.length ? <ActivityCard data={formState.data} /> : (
+            {isPending ? <Loader />
+                : (formState?.data?.length ? <ActivityCard data={formState?.data} /> : (
                     <p>Der blev ikke fundet nogle aktiviteter.
                         <br /> Prøv at søge efter noget andet.
-                    </p>)
-            )}
+                    </p>
+                ))}
         </>
     );
 }

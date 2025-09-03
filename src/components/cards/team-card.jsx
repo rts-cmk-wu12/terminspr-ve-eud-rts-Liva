@@ -1,13 +1,14 @@
 'use client';
 
 import useFetch from "@/hooks/use-fetch";
+import Loader from "../loader";
 
 function TeamCard({ id }) {
     const { data, error, loading } = useFetch(`activities/${id}`);
 
     return (
         <section className="team">
-            {loading && <p>Indlæser...</p>}
+            {loading && <Loader />}
             {error && <p>Aktivitet kunne ikke findes</p>}
             {data && (
                 <>

@@ -23,12 +23,6 @@ function ActivityBtn({ userIsParticipating, userIsAvailable, userTooYoung, userT
             dispatch({ type: 'methodDelete' });
         }
 
-        else if (!userIsParticipating) {
-            dispatch({ type: 'setTitle', newTitle: 'Tilmeld dig til denne aktivitet' });
-            dispatch({ type: 'setText', newText: 'Tilmeld' });
-            dispatch({ type: 'methodPost' });
-        }
-
         else if (!userIsAvailable) {
             dispatch({ type: 'setTitle', newTitle: 'Du er allerede tilmeldt noget andet denne dag' });
             dispatch({ type: 'isDisabled' });
@@ -42,7 +36,13 @@ function ActivityBtn({ userIsParticipating, userIsAvailable, userTooYoung, userT
         else if (userTooOld) {
             dispatch({ type: 'setTitle', newTitle: 'Du er for gammel til denne aktivitet' });
             dispatch({ type: 'isDisabled' });
-        };
+        }
+
+        else if (!userIsParticipating) {
+            dispatch({ type: 'setTitle', newTitle: 'Tilmeld dig til denne aktivitet' });
+            dispatch({ type: 'setText', newText: 'Tilmeld' });
+            dispatch({ type: 'methodPost' });
+        }
 
     }, [userIsParticipating]);
 

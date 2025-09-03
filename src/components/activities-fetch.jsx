@@ -1,6 +1,7 @@
 'use client';
 
 import useFetch from "@/hooks/use-fetch";
+import Loader from "./loader";
 import ActivityCard from "./cards/activity-card";
 
 function ActivitiesFetch() {
@@ -8,7 +9,7 @@ function ActivitiesFetch() {
 
     return (
         <>
-            {loading && <p>Indlæser...</p>}
+            {loading && <Loader />}
             {error && <p>Kunne ikke finde nogle aktiviteter</p>}
             <ActivityCard data={data} />
         </>
