@@ -13,7 +13,7 @@ function ActivityBtn({ userIsParticipating, userIsAvailable, userTooYoung, userT
     });
 
     async function manageUserActivity() {
-        await authFetch(`users/${userId}/activities/${activityId}`, `activity/${activityId}`, state?.method);
+        await authFetch(`users/${userId}/activities/${activityId}`, `activity/${activityId}`, true, state?.method);
     };
 
     useEffect(() => {
