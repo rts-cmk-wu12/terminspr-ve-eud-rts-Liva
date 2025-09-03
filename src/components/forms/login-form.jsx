@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import loginAction from "@/actions/login-action";
 import Loader from "../loader";
+import Link from "next/link";
 
 function LoginForm() {
     const [formState, formAction, isPending] = useActionState(loginAction);
@@ -41,6 +42,8 @@ function LoginForm() {
             </div>
             <p className="login__error">{formState?.errors}</p>
             <button type="submit" className="login__button">Log ind</button>
+            <p className="login__text">Har du ikke en profil?</p>
+            <Link href='/opret-bruger' className="login__link">Opret ny bruger</Link>
         </form>);
 }
 

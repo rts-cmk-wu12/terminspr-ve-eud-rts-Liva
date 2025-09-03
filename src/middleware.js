@@ -11,7 +11,7 @@ export default async function middleware(request) {
         return NextResponse.redirect(new URL('/welcome', request.url));
     };
 
-    if (pathname.includes('/login')) {
+    if (pathname.includes('/login' || pathname.includes('/opret-bruger'))) {
         return;
     };
 
@@ -48,5 +48,6 @@ export const config = {
         '/kalender/:path*',
         '/hold-oversigt/:path*',
         '/login/:path*',
+        '/opret-bruger/:path*',
     ]
 };

@@ -11,6 +11,7 @@ Api'et findes på https://github.com/rts-Liva/landrup-dans-api
 `npm run dev`
 
 ## Valg af valgfri opgave
+Jeg har lavet valgfri opgave B
 Jeg har lavet valgfri opgave C
 
 ## Tech-stack
