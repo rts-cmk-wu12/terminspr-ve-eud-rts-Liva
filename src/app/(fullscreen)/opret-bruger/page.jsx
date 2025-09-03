@@ -1,19 +1,20 @@
-import LoginForm from '@/components/forms/login-form';
+import SignUpForm from '@/components/forms/signup-form';
+import '@/scss/pages/signup.scss';
 import '@/scss/pages/login.scss';
 import '@/scss/components/splash-image.scss';
 
 export const metadata = {
-    title: "Log ind"
+    title: "Opret bruger"
 };
 
-function LoginPage() {
+function SignUpPage() {
     return (
         <>
             <div className="wrapper wrapper--overlay">
-                <LoginForm />
+                <SignUpForm />
             </div>
         </>
     );
 }
 
-export default LoginPage;
+export default SignUpPage;

@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import z from "zod";
 
+// Zod validering delen af følgende kode er udtaget fra et af mine tidligere opgaver
 async function loginAction(prevState, formData) {
     const username = formData.get('username');
     const password = formData.get('password');

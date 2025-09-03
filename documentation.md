@@ -11,6 +11,7 @@ Api'et findes på https://github.com/rts-Liva/landrup-dans-api
 `npm run dev`
 
 ## Valg af valgfri opgave
+Jeg har lavet valgfri opgave B
 Jeg har lavet valgfri opgave C
 
 ## Tech-stack
@@ -61,7 +62,7 @@ function ActivityDetails({ id, user }) {
 
     return (
         <>
-            {loading && <p>Indlæser...</p>}
+            {loading && <Loader />}
             {error && <p>Aktivitet kunne ikke findes</p>}
             {data && (
                 <>
@@ -69,10 +70,10 @@ function ActivityDetails({ id, user }) {
                         <Image
                             src={data.asset.url}
                             alt={`${data.name} billede`}
-                            width={411}
-                            height={490}
+                            width={600}
+                            height={600}
                             className="details-cover__image" />
-                        {user?.id && (
+                        {user?.id && user?.role === 'default' && (
                             <ActivityBtn
                                 userIsParticipating={userIsParticipating}
                                 userIsAvailable={userIsAvailable}
@@ -98,7 +99,7 @@ function ActivityBtn({ userIsParticipating, userIsAvailable, userTooYoung, userT
     });
 
     async function manageUserActivity() {
-        await authFetch(`users/${userId}/activities/${activityId}`, activityId, state?.method);
+        await authFetch(`users/${userId}/activities/${activityId}`, `activity/${activityId}`, true, state?.method);
     };
 
     useEffect(() => {
@@ -108,14 +109,13 @@ function ActivityBtn({ userIsParticipating, userIsAvailable, userTooYoung, userT
             dispatch({ type: 'methodDelete' });
         }
 
-        else if (!userIsParticipating) {
-            dispatch({ type: 'setTitle', newTitle: 'Tilmeld dig til denne aktivitet' });
-            dispatch({ type: 'setText', newText: 'Tilmeld' });
-            dispatch({ type: 'methodPost' });
-        }
-
         else if (!userIsAvailable) {
             dispatch({ type: 'setTitle', newTitle: 'Du er allerede tilmeldt noget andet denne dag' });
+            dispatch({ type: 'isDisabled' });
+        }
+
+        else if (userTooYoung) {
+            dispatch({ type: 'setTitle', newTitle: 'Du er ikke gammel nok til denne aktivitet' });
             dispatch({ type: 'isDisabled' });
         }
         ...

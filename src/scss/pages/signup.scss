@@ -1,0 +1,41 @@
+@use '../placeholders/root.scss';
+
+.signup {
+    align-self: center;
+    margin-inline: auto;
+    z-index: 1;
+    width: 100%;
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    &-wide {
+        display: flex;
+        gap: .5rem;
+    }
+
+    &__input {
+        width: 100%;
+        max-width: 23.4rem;
+        padding: .7rem .5rem;
+        border: none;
+        background-color: root.$primary-white;
+        margin-bottom: .2rem;
+        font-size: 1rem;
+        color: root.$typeography-tertiary;
+
+        &::placeholder {
+            font-size: 1rem;
+            color: root.$typeography-tertiary;
+        }
+    }
+
+    .login__button {
+        margin: 0;
+    }
+
+    .login__text {
+        margin-top: .5rem;
+    }
+}

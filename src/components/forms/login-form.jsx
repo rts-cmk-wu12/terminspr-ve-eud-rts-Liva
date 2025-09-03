@@ -1,26 +1,15 @@
 'use client';
 
 import { useActionState } from "react";
-import { BarLoader } from "react-spinners";
 import loginAction from "@/actions/login-action";
-
-const override = {
-    alignSelf: 'center',
-    marginInline: 'auto'
-};
+import Loader from "../loader";
+import Link from "next/link";
 
 function LoginForm() {
     const [formState, formAction, isPending] = useActionState(loginAction);
 
-    return isPending ? (
-        <BarLoader
-            color="#EAEAEA"
-            loading={true}
-            cssOverride={override}
-            size={55}
-        />
-    ) : (
-        <form className="login" action={formAction}>
+    return isPending ? <Loader />
+        : (<form className="login" action={formAction}>
             <h1 className="login__heading">Log ind</h1>
             <div>
                 <label>
@@ -53,8 +42,9 @@ function LoginForm() {
             </div>
             <p className="login__error">{formState?.errors}</p>
             <button type="submit" className="login__button">Log ind</button>
-        </form>
-    );
+            <p className="login__text">Har du ikke en profil?</p>
+            <Link href='/opret-bruger' className="login__link">Opret ny bruger</Link>
+        </form>);
 }
 
 export default LoginForm;

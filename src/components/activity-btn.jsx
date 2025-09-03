@@ -13,7 +13,7 @@ function ActivityBtn({ userIsParticipating, userIsAvailable, userTooYoung, userT
     });
 
     async function manageUserActivity() {
-        await authFetch(`users/${userId}/activities/${activityId}`, activityId, state?.method);
+        await authFetch(`users/${userId}/activities/${activityId}`, `activity/${activityId}`, true, state?.method);
     };
 
     useEffect(() => {
@@ -21,12 +21,6 @@ function ActivityBtn({ userIsParticipating, userIsAvailable, userTooYoung, userT
             dispatch({ type: 'setTitle', newTitle: 'Forlad denne aktivitet' });
             dispatch({ type: 'setText', newText: 'Forlad' });
             dispatch({ type: 'methodDelete' });
-        }
-
-        else if (!userIsParticipating) {
-            dispatch({ type: 'setTitle', newTitle: 'Tilmeld dig til denne aktivitet' });
-            dispatch({ type: 'setText', newText: 'Tilmeld' });
-            dispatch({ type: 'methodPost' });
         }
 
         else if (!userIsAvailable) {
@@ -42,7 +36,13 @@ function ActivityBtn({ userIsParticipating, userIsAvailable, userTooYoung, userT
         else if (userTooOld) {
             dispatch({ type: 'setTitle', newTitle: 'Du er for gammel til denne aktivitet' });
             dispatch({ type: 'isDisabled' });
-        };
+        }
+
+        else if (!userIsParticipating) {
+            dispatch({ type: 'setTitle', newTitle: 'Tilmeld dig til denne aktivitet' });
+            dispatch({ type: 'setText', newText: 'Tilmeld' });
+            dispatch({ type: 'methodPost' });
+        }
 
     }, [userIsParticipating]);
 

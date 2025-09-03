@@ -36,5 +36,9 @@ main {
 
     &.fullscreen {
         padding: 0;
+
+        .loader {
+            margin-top: 10rem;
+        }
     }
 }

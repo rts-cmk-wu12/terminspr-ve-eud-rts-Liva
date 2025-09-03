@@ -1,0 +1,27 @@
+@use '../placeholders/root.scss';
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &__card {
+        background-color: root.$primary-white;
+        padding: 1rem 1.5rem;
+        border-radius: .7rem;
+
+        &__heading {
+            color: root.$typeography-secondary;
+            font-size: 2rem;
+            max-width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        &__text {
+            color: root.$typeography-secondary;
+            text-transform: capitalize;
+        }
+    }
+}
