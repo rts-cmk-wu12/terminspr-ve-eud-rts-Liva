@@ -1,4 +1,4 @@
-import ActivityCard from "@/components/cards/activity-card";
+import ActivitiesFetch from "@/components/activities-fetch";
 
 export const metadata = {
   title: "Aktiviteter"
@@ -7,7 +7,7 @@ export const metadata = {
 function HomePage() {
   return (
     <>
-      <ActivityCard />
+      <ActivitiesFetch />
     </>
   );
 }
