@@ -4,6 +4,10 @@ import CalendarCard from "@/components/cards/calendar-card";
 import ActivityOverview from "@/components/activity-overview";
 import '@/scss/pages/calendar.scss';
 
+export const metadata = {
+    title: 'Kalender'
+};
+
 async function CalendarPage() {
     const cookieStore = await cookies();
     const user_id = cookieStore.get('user_id');
@@ -31,8 +35,7 @@ async function CalendarPage() {
                 instructorActivities?.map(activity => (
                     <ActivityOverview
                         key={activity.id}
-                        id={activity.id}
-                        userId={user.id} />
+                        activity={activity} />
                 ))
             )}
         </>
