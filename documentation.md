@@ -10,7 +10,11 @@ Api'et findes på https://github.com/rts-Liva/landrup-dans-api
 
 `npm run dev`
 
+Linket til live-side (Obs. api'et kører over en webservice, som er lidt tid om at vågne.)
+https://landrup-dans-wine.vercel.app
+
 ## Valg af valgfri opgave
+Jeg har lavet valgfri opgave A
 Jeg har lavet valgfri opgave B
 Jeg har lavet valgfri opgave C
 
