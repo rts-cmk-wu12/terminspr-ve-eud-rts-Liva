@@ -17,6 +17,7 @@ function LoginForm() {
                         type="text"
                         name="username"
                         placeholder="Brugernavn"
+                        defaultValue={formState?.data?.username}
                         className="login__input" />
                     <p className="login__error">{formState?.properties?.username?.errors}</p>
                 </label>
@@ -27,6 +28,7 @@ function LoginForm() {
                         type="password"
                         name="password"
                         placeholder="Adgangskode"
+                        defaultValue={formState?.data?.password}
                         className="login__input" />
                     <p className="login__error">{formState?.properties?.password?.errors}</p>
                 </label>

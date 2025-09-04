@@ -17,6 +17,7 @@ function SignUpForm() {
                         type="text"
                         name="username"
                         placeholder="Brugernavn"
+                        defaultValue={formState?.data?.username}
                         className="signup__input" />
                     <p className="login__error">{formState?.properties?.username?.errors}</p>
                 </label>
@@ -25,6 +26,7 @@ function SignUpForm() {
                         type="password"
                         name="password"
                         placeholder="Adgangskode"
+                        defaultValue={formState?.data?.password}
                         className="signup__input" />
                     <p className="login__error">{formState?.properties?.password?.errors}</p>
                 </label>
@@ -35,6 +37,7 @@ function SignUpForm() {
                         type="text"
                         name="firstname"
                         placeholder="Fornavn"
+                        defaultValue={formState?.data?.firstname}
                         className="signup__input" />
                     <p className="login__error">{formState?.properties?.firstname?.errors}</p>
                 </label>
@@ -43,6 +46,7 @@ function SignUpForm() {
                         type="text"
                         name="lastname"
                         placeholder="Efternavn"
+                        defaultValue={formState?.data?.lastname}
                         className="signup__input" />
                     <p className="login__error">{formState?.properties?.lastname?.errors}</p>
                 </label>
@@ -53,6 +57,7 @@ function SignUpForm() {
                         type="number"
                         name="age"
                         placeholder="Alder"
+                        defaultValue={formState?.data?.age}
                         className="signup__input" />
                     <p className="login__error">{formState?.properties?.age?.errors}</p>
                 </label>
