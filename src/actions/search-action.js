@@ -31,7 +31,9 @@ async function searchAction(prevState, formData) {
 
     function validateActivities(name) {
         const lowerCaseWords = name.toLowerCase().split(' ');
-        const isValid = (string) => string === validated.data.query.toLowerCase();
+        // Only match if word starts with the query (Nothing before, but ignores after)
+        const regex = new RegExp(String.raw`^${validated.data.query}`, 'i');
+        const isValid = (word) => regex.test(word);
 
         return lowerCaseWords.some(isValid);
     };
