@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 
-async function authFetch(endpoint, pageUrl, revalidate = false, method = 'GET', baseUrl = 'http://localhost:4000/api/v1/') {
+async function authFetch(endpoint, pageUrl, revalidate = false, method = 'GET', baseUrl = `${process.env.BASE_URL}api/v1/`) {
     const cookieStore = await cookies();
     const access_token = cookieStore.get('access_token');
 

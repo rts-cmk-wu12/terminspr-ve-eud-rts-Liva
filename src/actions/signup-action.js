@@ -35,7 +35,7 @@ async function signupAction(prevState, formData) {
         }
     };
 
-    const response = await fetch('http://localhost:4000/api/v1/users', {
+    const response = await fetch(process.env.BASE_URL + 'api/v1/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'

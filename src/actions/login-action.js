@@ -28,7 +28,7 @@ async function loginAction(prevState, formData) {
         }
     };
 
-    const response = await fetch('http://localhost:4000/auth/token', {
+    const response = await fetch(process.env.BASE_URL + 'auth/token', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
