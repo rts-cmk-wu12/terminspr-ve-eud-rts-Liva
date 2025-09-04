@@ -148,3 +148,12 @@ Jeg bruger en useEffect, som er en React-hook. React hooks er indbygget react fu
 I denne useEffect bruger jeg min reducer's dispatch til at angive nye værdier med brug af conditional statements.
 
 Knappen vil dynamisk tilpasse sig til de forskellige funktioner og accessibility den skal, uden af rendere forskellige knapper til hvert job.
+
+## Ændringer i design
+### Drawer-menu
+* Jeg har valgt at cirklen rundt om hvert ikon kun viser sig til den aktive side.
+* Dette valgte jeg at gøre da det udlaverede design, ikke havde nogen måde at vide hvilken side man var inde på, ved at kigge i menuen.
+
+### Login formular
+* Jeg har tilføjet i bunden af login formularen, et link til signup siden.
+* Dette gjorde jeg for at integrere valgfri opgave B ind i hjemmesiden.
