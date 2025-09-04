@@ -3,8 +3,8 @@
 import { useActionState } from "react";
 import { FiSearch } from "react-icons/fi";
 import searchAction from "@/actions/search-action";
-import Loader from "../loader";
-import ActivityCard from "../cards/activity-card";
+import Loader from "@/components/loader";
+import ActivityCard from "@/components/cards/activity-card";
 
 function SearchForm() {
     const [formState, formAction, isPending] = useActionState(searchAction);

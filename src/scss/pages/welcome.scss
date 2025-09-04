@@ -19,6 +19,7 @@
             display: block;
             font-size: 4rem;
             color: root.$typeography-pink;
+            // text-shadow er blevet udtaget fra https://stackoverflow.com/questions/4919076/outline-effect-to-text
             text-shadow: -1px -1px 0 root.$accent-black, 1px -1px 0 root.$accent-black, -1px 1px 0 root.$accent-black, 1px 1px 0 root.$accent-black;
             -webkit-text-stroke: 0;
             font-style: italic;

@@ -1,9 +1,9 @@
 'use client';
 
 import useFetch from "@/hooks/use-fetch";
-import Loader from "../loader";
+import Loader from "@/components/loader";
 import Image from "next/image";
-import ActivityBtn from "../activity-btn";
+import ActivityBtn from "@/components/activity-btn";
 
 function ActivityDetails({ id, user }) {
     const { data, error, loading } = useFetch(`activities/${id}`);

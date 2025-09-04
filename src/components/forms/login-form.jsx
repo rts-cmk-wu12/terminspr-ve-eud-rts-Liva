@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import loginAction from "@/actions/login-action";
-import Loader from "../loader";
+import Loader from "@/components/loader";
 import Link from "next/link";
 
 function LoginForm() {

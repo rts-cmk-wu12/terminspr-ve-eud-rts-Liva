@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
+// Følgende kode er udtaget fra et af mine personlige projekter
 function NavLink({ children, defaultClass, path }) {
     const pathname = usePathname();
 
