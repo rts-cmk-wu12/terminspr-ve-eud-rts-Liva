@@ -19,6 +19,7 @@ async function authFetch(endpoint, pageUrl, revalidate = false, method = 'GET', 
 
         if (revalidate) {
             revalidatePath(`http://localhost:3000/${pageUrl}`);
+            revalidatePath(`https://landrup-dans-wine.vercel.app/${pageUrl}`);
         };
 
         return data;
@@ -26,6 +27,7 @@ async function authFetch(endpoint, pageUrl, revalidate = false, method = 'GET', 
 
     if (revalidate) {
         revalidatePath(`http://localhost:3000/${pageUrl}`);
+        revalidatePath(`https://landrup-dans-wine.vercel.app/${pageUrl}`);
     };
 }
 
