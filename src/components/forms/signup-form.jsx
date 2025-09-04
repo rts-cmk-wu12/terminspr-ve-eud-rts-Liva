@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import signupAction from "@/actions/signup-action";
-import Loader from "../loader";
+import Loader from "@/components/loader";
 import Link from "next/link";
 
 function SignUpForm() {

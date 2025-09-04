@@ -1,7 +1,7 @@
 'use client';
 
 import useFetch from "@/hooks/use-fetch";
-import Loader from "../loader";
+import Loader from "@/components/loader";
 
 function TeamCard({ id }) {
     const { data, error, loading } = useFetch(`activities/${id}`);

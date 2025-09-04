@@ -1,5 +1,5 @@
 import { FiCalendar, FiHome, FiSearch } from "react-icons/fi";
-import Link from "next/link";
+import NavLink from "./nav-link";
 import '@/scss/components/footer.scss';
 
 function Footer() {
@@ -7,9 +7,9 @@ function Footer() {
         <footer className="footer">
             <nav>
                 <ul className="footer__list">
-                    <li><Link href='/' className="footer__list-item"><FiHome /></Link></li>
-                    <li><Link href='/soeg' className="footer__list-item"><FiSearch /></Link></li>
-                    <li><Link href='/kalender' className="footer__list-item"><FiCalendar /></Link></li>
+                    <li><NavLink defaultClass='footer__list-item' path='/'><FiHome /></NavLink></li>
+                    <li><NavLink defaultClass='footer__list-item' path='/soeg'><FiSearch /></NavLink></li>
+                    <li><NavLink defaultClass='footer__list-item' path='/kalender'><FiCalendar /></NavLink></li>
                 </ul>
             </nav>
         </footer>

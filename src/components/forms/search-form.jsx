@@ -3,8 +3,8 @@
 import { useActionState } from "react";
 import { FiSearch } from "react-icons/fi";
 import searchAction from "@/actions/search-action";
-import Loader from "../loader";
-import ActivityCard from "../cards/activity-card";
+import Loader from "@/components/loader";
+import ActivityCard from "@/components/cards/activity-card";
 
 function SearchForm() {
     const [formState, formAction, isPending] = useActionState(searchAction);
@@ -20,10 +20,10 @@ function SearchForm() {
                         autoComplete="off"
                         placeholder="Søg..."
                         className="search__input" />
-                    <p className="login__error">{formState?.properties?.query?.errors}</p>
                 </label>
                 <button type="submit" className="search__icon"><FiSearch /></button>
             </form>
+            <p className="login__error search__error">{formState?.properties?.query?.errors}</p>
 
             {isPending ? <Loader />
                 : (formState?.data?.length ? <ActivityCard data={formState?.data} /> : (
