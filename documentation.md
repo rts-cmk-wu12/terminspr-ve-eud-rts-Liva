@@ -46,7 +46,7 @@ Jeg har lavet valgfri opgave C
 
 ### React-spinners
 * React-spinners er et loading-spinners-bibliotek, anvendt til React.
-* React-spinners giver mig nem mulighed for at interagere loading animationer uden meget besvær.
+* React-spinners giver mig nem mulighed for at integrere loading animationer uden meget besvær.
 * Dog er versionen stadig i alpha, så andre muligheder kunne overvejes.
 
 ## Kode eksempel

@@ -25,10 +25,17 @@ async function signupAction(prevState, formData) {
 
     if (!validated.success) return {
         ...validated,
-        ...(z.treeifyError(validated.error))
+        ...(z.treeifyError(validated.error)),
+        data: {
+            username,
+            password,
+            firstname,
+            lastname,
+            age
+        }
     };
 
-    const response = await fetch('http://localhost:4000/api/v1/users', {
+    const response = await fetch(process.env.BASE_URL + 'api/v1/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -38,7 +45,8 @@ async function signupAction(prevState, formData) {
 
     if (response.status !== 200) return {
         success: false,
-        errors: ['Bruger kunne ikke oprettes.']
+        errors: ['Bruger kunne ikke oprettes.'],
+        data: validated.data
     };
 
     redirect('/login');

@@ -18,7 +18,7 @@ async function searchAction(prevState, formData) {
         ...(z.treeifyError(validated.error))
     };
 
-    const response = await fetch('http://localhost:4000/api/v1/activities');
+    const response = await fetch(process.env.BASE_URL + 'api/v1/activities');
 
     if (response.status !== 200) return {
         success: false,

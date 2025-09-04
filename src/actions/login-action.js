@@ -21,10 +21,14 @@ async function loginAction(prevState, formData) {
 
     if (!validated.success) return {
         ...validated,
-        ...(z.treeifyError(validated.error))
+        ...(z.treeifyError(validated.error)),
+        data: {
+            username,
+            password
+        }
     };
 
-    const response = await fetch('http://localhost:4000/auth/token', {
+    const response = await fetch(process.env.BASE_URL + 'auth/token', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -37,7 +41,8 @@ async function loginAction(prevState, formData) {
 
     if (response.status !== 200) return {
         success: false,
-        errors: ['Brugernavn eller adgangskode er forkert']
+        errors: ['Brugernavn eller adgangskode er forkert'],
+        data: validated.data
     };
 
     const data = await response.json();
