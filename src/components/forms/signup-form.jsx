@@ -18,6 +18,7 @@ function SignUpForm() {
                         name="username"
                         placeholder="Brugernavn"
                         defaultValue={formState?.data?.username}
+                        autoComplete="username"
                         className="signup__input" />
                     <p className="login__error">{formState?.properties?.username?.errors}</p>
                 </label>
@@ -27,6 +28,7 @@ function SignUpForm() {
                         name="password"
                         placeholder="Adgangskode"
                         defaultValue={formState?.data?.password}
+                        autoComplete="new-password"
                         className="signup__input" />
                     <p className="login__error">{formState?.properties?.password?.errors}</p>
                 </label>
@@ -38,6 +40,7 @@ function SignUpForm() {
                         name="firstname"
                         placeholder="Fornavn"
                         defaultValue={formState?.data?.firstname}
+                        autoComplete="given-name"
                         className="signup__input" />
                     <p className="login__error">{formState?.properties?.firstname?.errors}</p>
                 </label>
@@ -47,6 +50,7 @@ function SignUpForm() {
                         name="lastname"
                         placeholder="Efternavn"
                         defaultValue={formState?.data?.lastname}
+                        autoComplete="family-name"
                         className="signup__input" />
                     <p className="login__error">{formState?.properties?.lastname?.errors}</p>
                 </label>
@@ -58,6 +62,7 @@ function SignUpForm() {
                         name="age"
                         placeholder="Alder"
                         defaultValue={formState?.data?.age}
+                        autoComplete="off"
                         className="signup__input" />
                     <p className="login__error">{formState?.properties?.age?.errors}</p>
                 </label>

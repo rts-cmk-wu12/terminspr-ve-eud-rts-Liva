@@ -18,6 +18,7 @@ function LoginForm() {
                         name="username"
                         placeholder="Brugernavn"
                         defaultValue={formState?.data?.username}
+                        autoComplete="username"
                         className="login__input" />
                     <p className="login__error">{formState?.properties?.username?.errors}</p>
                 </label>
@@ -29,6 +30,7 @@ function LoginForm() {
                         name="password"
                         placeholder="Adgangskode"
                         defaultValue={formState?.data?.password}
+                        autoComplete="current-password"
                         className="login__input" />
                     <p className="login__error">{formState?.properties?.password?.errors}</p>
                 </label>
