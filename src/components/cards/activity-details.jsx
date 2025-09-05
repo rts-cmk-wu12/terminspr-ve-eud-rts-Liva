@@ -3,6 +3,7 @@
 import useFetch from "@/hooks/use-fetch";
 import Loader from "@/components/loader";
 import Image from "next/image";
+import newImageUrl from "@/utils/image-url";
 import ActivityBtn from "@/components/activity-btn";
 
 function ActivityDetails({ id, user }) {
@@ -21,7 +22,7 @@ function ActivityDetails({ id, user }) {
                 <>
                     <div className="details-cover">
                         <Image
-                            src={data.asset.url}
+                            src={newImageUrl(data.asset.url)}
                             alt={`${data.name} billede`}
                             width={600}
                             height={600}

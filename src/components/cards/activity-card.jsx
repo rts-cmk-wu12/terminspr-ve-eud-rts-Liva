@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import newImageUrl from "@/utils/image-url";
 import '@/scss/components/activity-card.scss';
 
 function ActivityCard({ data }) {
@@ -11,7 +12,7 @@ function ActivityCard({ data }) {
                 <li key={activity.id} className="activity-card">
                     <Link href={`/aktivitet/${activity.id}`}>
                         <Image
-                            src={activity.asset.url}
+                            src={newImageUrl(activity.asset.url)}
                             alt={`${activity.name} billede`}
                             width={500}
                             height={500}
